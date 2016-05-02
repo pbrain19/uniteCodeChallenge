@@ -2,8 +2,10 @@ var app = angular.module('uniteUs');
 
 app.directive('serviceTypeSelect', function(){
   return {
-    require: 'ngModel',
     replace: true,
+    scope: {
+      toBind: '='
+    },
     controller: function($scope, Assistance) {
       $scope.serviceTypes = [];
 
@@ -11,9 +13,6 @@ app.directive('serviceTypeSelect', function(){
         .then(function(typeList) {
           $scope.serviceTypes = typeList;
         });
-    },
-    link: function(scope, element, iAttr, ngModelCtrl) {
-      scope.model = ngModelCtrl.$modelValue
     },
     templateUrl: './serviceTypeSelect.html'
   }

@@ -1,5 +1,5 @@
 <select class="form-control"
-        ng-model="model"
-        ng-options="option as option.display_name for option in serviceTypes track by option.id">
+        ng-model="toBind"
+        ng-options="option.id as option.display_name for option in serviceTypes track by option.id">
 
 </select>
